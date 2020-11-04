@@ -1,0 +1,97 @@
+.login {
+  $padding-tb: 2rem;
+  $padding-lr: 5rem;
+  display: flex;
+  flex-flow: row;
+  height: 100vh;
+
+  .img-container {
+    width: 50vw;
+    padding: $padding-tb $padding-lr;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f2f2f2;
+    background-color: #000;
+
+    img {
+      width: 75%;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      font-family: MonumentExtended;
+      font-weight: normal;
+      padding-top: 1.5rem;
+    }
+  }
+
+  $footer-padding-bottom: 1rem;
+  $padding-top: calc(#{$padding-tb} - #{$footer-padding-bottom} - 1rem);
+
+  .form-container {
+    width: 50vw;
+    padding: $padding-top $padding-lr $padding-tb;
+    font-size: 0.75rem;
+    color: #80809d;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    img.logo {
+      align-self: flex-start;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: #333363;
+    }
+
+    .description {
+      color: #66668a;
+    }
+
+    .form-field {
+      margin-top: 2rem;
+    }
+
+    button {
+      margin-top: 2rem;
+    }
+
+    .options {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      font-weight: 500;
+
+      a {
+        cursor: pointer;
+        color: #006dd2;
+      }
+    }
+  }
+
+  .description {
+    font-size: 0.75rem;
+    line-height: 1.8;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: $padding-lr;
+    bottom: $footer-padding-bottom;
+
+    img {
+      padding: 0 0.5rem;
+    }
+  }
+}
