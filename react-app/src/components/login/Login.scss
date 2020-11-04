@@ -1,13 +1,59 @@
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin mobile-tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin tablet-desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin wide-screen {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
 .login {
-  $padding-tb: 2rem;
-  $padding-lr: 5rem;
+  --padding-tb: 2rem;
+  --padding-lr: 4rem;
+
+  @include mobile-tablet {
+    --padding-lr: 2rem;
+  }
+
   display: flex;
   flex-flow: row;
-  height: 100vh;
+  min-height: 100vh;
+
+  @include mobile {
+    flex-flow: column-reverse;
+    height: unset;
+  }
 
   .img-container {
     width: 50vw;
-    padding: $padding-tb $padding-lr;
+    padding: var(--padding-tb) var(--padding-lr);
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -15,6 +61,10 @@
     text-align: center;
     color: #f2f2f2;
     background-color: #000;
+
+    @include mobile {
+      width: 100vw;
+    }
 
     img {
       width: 75%;
@@ -29,19 +79,19 @@
     }
   }
 
-  $footer-padding-bottom: 1rem;
-  $padding-top: calc(#{$padding-tb} - #{$footer-padding-bottom} - 1rem);
-  $padding-bottom: calc(#{$padding-tb} + 1rem);
-
   .form-container {
     width: 50vw;
-    padding: $padding-top $padding-lr $padding-bottom;
+    padding: var(--padding-tb) var(--padding-lr);
     font-size: 0.75rem;
     color: #80809d;
     position: relative;
     display: flex;
     flex-flow: column;
     justify-content: center;
+
+    @include mobile {
+      width: 100vw;
+    }
 
     img.logo {
       align-self: flex-start;
@@ -88,8 +138,16 @@
     display: flex;
     align-items: center;
     position: absolute;
-    right: $padding-lr;
-    bottom: $footer-padding-bottom;
+    right: var(--padding-lr);
+    bottom: 1rem;
+
+    @include mobile {
+      position: relative;
+      right: unset;
+      bottom: unset;
+      margin-top: 2rem;
+      justify-content: flex-end;
+    }
 
     img {
       padding: 0 0.5rem;
