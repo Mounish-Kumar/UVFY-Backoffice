@@ -31,10 +31,11 @@
 
   $footer-padding-bottom: 1rem;
   $padding-top: calc(#{$padding-tb} - #{$footer-padding-bottom} - 1rem);
+  $padding-bottom: calc(#{$padding-tb} + 1rem);
 
   .form-container {
     width: 50vw;
-    padding: $padding-top $padding-lr $padding-tb;
+    padding: $padding-top $padding-lr $padding-bottom;
     font-size: 0.75rem;
     color: #80809d;
     position: relative;
