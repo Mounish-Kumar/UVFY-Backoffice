@@ -45,6 +45,9 @@
   display: flex;
   flex-flow: row;
   min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   @include mobile {
     flex-flow: column-reverse;
@@ -67,15 +70,37 @@
     }
 
     img {
-      width: 75%;
+      max-width: 100%;
+      max-height: 350px;
     }
 
     h2 {
       font-size: 1.3rem;
       font-weight: 400;
-      font-family: MonumentExtended;
+      font-family: "Monument Extended";
       font-weight: normal;
       padding-top: 1.5rem;
+    }
+
+    .carousal-indicators {
+      margin-top: 1rem;
+
+      span {
+        cursor: pointer;
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border: 1px solid #ccccd8;
+        border-radius: 50%;
+
+        &:not(:last-of-type) {
+          margin-right: 0.5rem;
+        }
+
+        &.active {
+          background-color: #ccccd8;
+        }
+      }
     }
   }
 
@@ -88,6 +113,7 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
+    background-color: #fff;
 
     @include mobile {
       width: 100vw;
@@ -145,7 +171,7 @@
       position: relative;
       right: unset;
       bottom: unset;
-      margin-top: 2rem;
+      margin-top: 3rem;
       justify-content: flex-end;
     }
 

@@ -1,37 +1,51 @@
 import React, { Component } from "react";
+import "./Logs.scss";
 
 class Logs extends Component {
-  state = {};
+  state = {
+    logs: [
+      { onTime: "06/11/2020 10:00:00", offTime: "06/11/2020 10:05:00" },
+      { onTime: "07/11/2020 10:00:00", offTime: "07/11/2020 10:05:00" },
+      { onTime: "08/11/2020 10:00:00", offTime: "08/11/2020 10:05:00" },
+      { onTime: "09/11/2020 10:00:00", offTime: "09/11/2020 10:05:00" },
+      { onTime: "10/11/2020 10:00:00", offTime: "10/11/2020 10:05:00" },
+      { onTime: "11/11/2020 10:00:00", offTime: "11/11/2020 10:05:00" },
+    ],
+  };
   render() {
+    const { logs } = this.state;
     return (
       <div className="logs">
         <h1>UVFY Logs</h1>
         <div className="search">
-          <label>
-            <div>From Date</div>
+          <div className="form-field">
+            <div className="label">From Date</div>
             <input type="date" />
-          </label>
-          <label>
-            <div>To Date</div>
+          </div>
+          <div className="form-field">
+            <div className="label">To Date</div>
             <input type="date" />
-          </label>
+          </div>
           <button>Fetch Logs</button>
-          {/* <button>Generate Report</button> */}
+          <button className="secondary disabled">Download Report</button>
         </div>
         <table>
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Start Time</th>
-              <th>End Time</th>
+              <th>S.No.</th>
+              <th>On Time</th>
+              <th>Off Time</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            {logs &&
+              logs.map((log, index) => (
+                <tr key={log}>
+                  <td>{index + 1}</td>
+                  <td>{log.onTime}</td>
+                  <td>{log.offTime}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

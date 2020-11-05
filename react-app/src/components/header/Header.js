@@ -1,16 +1,27 @@
 import React, { Component } from "react";
+import "./Header.scss";
+import verseImg from "../../assets/images/verse.svg";
+import { NavLink } from "react-router-dom";
 
 class Header extends Component {
   state = {};
   render() {
     return (
       <header>
-        <img className="logo" src="" />
-        <ul>
-          <li>DASHBOARD</li>
-          <li>CHART</li>
+        <img className="logo" src={verseImg} alt="Verse" />
+        <ul className="nav">
+          <li>
+            <NavLink to="/logs">DASHBOARD</NavLink>
+          </li>
+          <li>
+            <NavLink to="/chart">CHART</NavLink>
+          </li>
         </ul>
-        <div>LOGOUT</div>
+        <ul className="options">
+          <li>
+            <NavLink to="/login">LOGOUT</NavLink>
+          </li>
+        </ul>
       </header>
     );
   }
